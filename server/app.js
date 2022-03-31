@@ -1,16 +1,10 @@
 const Koa = require('koa');
 const app = new Koa();
-var cors = require('koa2-cors');
+var cors = require('koa2-cors');  //解决跨域
 var router = require ('./router');
-var koaStatic = require ('koa-static');
+var koaStatic = require ('koa-static');  // 静态文件加载
 var tokenUtil = require ('./token-util.js');
-/*const Router = require('koa-router')
-const router = new Router ({
-    prefix:'/api/v1'
-});
-router.get('/login',async ctx =>{
-    ctx.body='success'
-});*/
+
 // 解决访问koa-router post接口404问题
 app.use(async (ctx, next)=>{
     try{
